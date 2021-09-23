@@ -32,7 +32,49 @@ try {
     tweetaUserOne.save()
         .then(() => console.log(`New TweetaUser ${tweetaUserOne} saved!`))
         .catch((e) => console.log("Unable to save", e))
+        // .finally(() => mongoose.connection.close());
+
+    // --------------
+    const tweet1 = new Tweet({
+        id: 1,
+        text: "Hello World! How are you?",
+        created: new Date(),
+        user: tweetaUserOne._id,
+        retweets: null,
+        replies: null
+    });
+
+    tweet1.save()
+        .then(() => console.log(`New Tweet ${tweet1} saved!`))
+        .catch((e) => console.log("Unable to save", e));
+
+    // --------------
+    const reply1 = new Reply({
+        id: 1,
+        text: "I'm very well, thank you!",
+        user: tweetaUserOne._id,
+        tweet: tweet1._id,
+        created: new Date()
+    });
+
+    reply1.save()
+        .then(() => console.log(`New Reply ${reply1} saved!`))
+        .catch((e) => console.log("Unable to save", e));
+
+    // --------------
+
+    const like1 = new Like({
+        id: 1,
+        tweet: tweet1._id,
+        user: tweetaUserOne._id,
+        created: new Date()
+    });
+
+    like1.save()
+        .then(() => console.log(`New Like ${like1} saved!`))
+        .catch((e) => console.log("Unable to save", e))
         .finally(() => mongoose.connection.close());
+
 } catch (error) {
     console.log("Errrrrrrror: ", error)
 }

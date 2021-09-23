@@ -3,8 +3,8 @@ import mongoose from 'mongoose';
 const replySchema = new mongoose.Schema({
     id: Number,
     text: String,
-    author: mongoose.Types.ObjectId,
-    tweets: mongoose.Types.ObjectId,
+    user: mongoose.Types.ObjectId,
+    tweet: mongoose.Types.ObjectId,
     created: Date
 });
 
