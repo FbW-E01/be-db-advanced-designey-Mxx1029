@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 import TweetaUser from './models/tweetaUser.js';
+import Tweet from './models/tweet.js';
+import Reply from './models/reply.js';
+import Like from './models/like.js';
 
 // > use designeyExercise
 // > db.createUser({ user: "Tweeta", pwd: "tw33taPw0rd", roles: ["readWrite"] })
